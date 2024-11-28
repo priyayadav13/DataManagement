@@ -1,0 +1,11 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore Visual Studio configuration directories
+.vs/
+DataManagementAPI/.vs/
+DataManagementUI/.vs/
+
+# Ignore build output directories
+DataManagementAPI/bin/
+DataManagementUI/obj/
