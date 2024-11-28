@@ -1,0 +1,32 @@
+<div class="container">
+  <!-- Left side: List of all samplingTimes -->
+  <div class="left-panel">
+    <h3>All Sampling Times</h3>
+    <ul>
+      <li *ngFor="let item of data" (click)="onSamplingTimeClick(item.samplingTime)">
+        {{ item.samplingTime | date: 'dd-MM-yyyy hh:mm:ss a' }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Right side: Detailed view of selected samplingTime -->
+  <div *ngIf="detailedFormVisible" class="right-panel">
+    <h3>Update Json Data</h3>
+    <form (ngSubmit)="onSubmit()">
+      <div *ngFor="let property of selectedSamplingTime?.properties" class="field-container">
+        <label>{{ property.label }}</label>
+        <div *ngIf="isBoolean(property.value)">
+          <input type="checkbox" [(ngModel)]="property.value" name="{{property.label}}" />
+        </div>
+        <div *ngIf="isNumber(property.value)">
+          <input type="number" [(ngModel)]="property.value" name="{{property.label}}" required step="any" />
+        </div>
+        <div *ngIf="!isBoolean(property.value) && !isNumber(property.value)">
+          <input [(ngModel)]="property.value" name="{{property.label}}" required />
+        </div>
+      </div>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+
+</div>

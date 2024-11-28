@@ -1,0 +1,10 @@
+<div class="top-header">
+  <h2 class="tab" [routerLink]="['/']" routerLinkActive="active" (click)="onTabClick('Data Management')"
+    [class.active]="activeTab === 'Data Management'">
+    Data Management
+  </h2>
+  <h2 class="tab" [routerLink]="['/detailed-view']" routerLinkActive="active" (click)="onTabClick('Detailed View')"
+    [class.active]="activeTab === 'Detailed View'">
+    Detailed View
+  </h2>
+</div>
